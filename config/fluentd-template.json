@@ -1,0 +1,349 @@
+{
+    "template" : "fluentd-*",
+    "settings" : {
+      "number_of_shards" : 22,
+      "index" : {
+        "refresh_interval" : "30s"
+      }
+    },
+    "mappings": {
+    "_default_": {
+      "_all": {
+        "enabled": true
+      },
+      "dynamic_templates": [
+        {
+          "string_fields": {
+            "mapping": {
+              "index": "analyzed",
+              "omit_norms": true,
+              "type": "string",
+              "fields": {
+                "raw": {
+                  "ignore_above": 256,
+                  "index": "not_analyzed",
+                  "type": "string"
+                }
+              }
+            },
+            "match_mapping_type": "string",
+            "match": "*"
+          }
+        }
+      ],
+      "properties": {
+        "beat": {
+          "type": "object",
+          "properties": {
+            "hostname": {
+              "type": "string",
+              "index": "not_analyzed"
+            },
+            "version": {
+              "type": "string",
+              "index": "not_analyzed"
+            },
+            "name": {
+              "type": "string",
+              "index": "not_analyzed"
+            }
+          }
+        },
+        "rsync_distribution": {
+          "type": "string",
+          "index": "not_analyzed"
+        },
+        "type_l": {
+          "type": "string",
+          "index": "not_analyzed"
+        },
+        "class": {
+          "type": "string",
+          "index": "not_analyzed"
+        },
+        "colo": {
+          "type": "string",
+          "index": "not_analyzed"
+        },
+        "country": {
+          "type": "string",
+          "index": "not_analyzed"
+        },
+        "facility": {
+          "type": "string",
+          "index": "not_analyzed"
+        },
+        "hardware_type": {
+          "type": "string",
+          "index": "not_analyzed"
+        },
+        "host": {
+          "type": "string",
+          "index": "not_analyzed"
+        },
+        "ident": {
+          "type": "string",
+          "index": "not_analyzed"
+        },
+        "in_sd": {
+          "type": "string",
+          "index": "not_analyzed"
+        },
+        "monit_action": {
+          "type": "string",
+          "index": "not_analyzed"
+        },
+        "monit_service": {
+          "type": "string",
+          "index": "not_analyzed"
+        },
+        "oom_killed": {
+          "type": "string",
+          "index": "not_analyzed"
+        },
+        "ox_affr": {
+          "type": "string",
+          "index": "not_analyzed"
+        },
+        "ox_bannerid  ": {
+          "type": "integer",
+          "index": "not_analyzed"
+        },
+        "ox_campaignid": {
+          "type": "integer",
+          "index": "not_analyzed"
+        },
+        "ox_time": {
+          "type": "integer",
+          "index": "not_analyzed"
+        },
+        "ox_type": {
+          "type": "string",
+          "index": "not_analyzed"
+        },
+        "ox_value": {
+          "type": "integer",
+          "index": "not_analyzed"
+        },
+        "ox_zoneid": {
+          "type": "integer",
+          "index": "not_analyzed"
+        },
+        "ovpn_ip": {
+          "type": "string",
+          "index": "not_analyzed"
+        },
+        "pid": {
+          "type": "string",
+          "index": "not_analyzed"
+        },
+        "php_children": {
+          "type": "integer",
+          "index": "not_analyzed"
+        },
+        "php_error_ip": {
+          "type": "string",
+          "index": "not_analyzed"
+        },
+        "php_slow_script": {
+          "type": "string",
+          "index": "not_analyzed"
+        },
+        "php_slow_time": {
+          "type": "integer",
+          "index": "not_analyzed"
+        },
+        "php_pool": {
+          "type": "string",
+          "index": "not_analyzed"
+        },
+        "route_src_ip": {
+          "type": "string",
+          "index": "not_analyzed"
+        },
+        "route_dst_ip": {
+          "type": "string",
+          "index": "not_analyzed"
+        },
+        "srync_distribution": {
+          "type": "string",
+          "index": "not_analyzed"
+        },
+        "sd_android_version": {
+          "type": "integer",
+          "index": "not_analyzed"
+        },
+        "sd_android_user_country": {
+          "type": "string",
+          "index": "not_analyzed"
+        },
+        "sd_android_requested_country": {
+          "type": "string",
+          "index": "not_analyzed"
+        },
+        "sd_android_dedicated": {
+          "type": "string",
+          "index": "not_analyzed"
+        },
+        "severity": {
+          "type": "string",
+          "index": "not_analyzed"
+        },
+        "state": {
+          "type": "string",
+          "index": "not_analyzed"
+        },
+        "syslog_dropped": {
+          "type": "integer",
+          "index": "not_analyzed"
+        },
+        "type": {
+          "type": "string",
+          "index": "not_analyzed"
+        },
+        "yum_installed": {
+          "type": "string",
+          "index": "not_analyzed"
+        },
+        "container_id": {
+          "type": "string",
+          "index": "not_analyzed"
+        },
+        "namespace": {
+          "type": "string",
+          "index": "not_analyzed"
+        },
+        "container_name": {
+          "type": "string",
+          "index": "not_analyzed"
+        },
+        "hostname": {
+          "type": "string",
+          "index": "not_analyzed"
+        },
+        "version": {
+          "type": "string",
+          "index": "not_analyzed"
+        },
+        "name": {
+          "type": "string",
+          "index": "not_analyzed"
+        },
+        "tags": {
+          "type": "string",
+          "index": "not_analyzed"
+        },
+        "input_type": {
+          "type": "string",
+          "index": "not_analyzed"
+        },
+        "stream": {
+          "type": "string",
+          "index": "not_analyzed"
+        },
+        "type": {
+          "type": "string",
+          "index": "not_analyzed"
+        },
+        "args": {
+          "type": "string",
+          "index": "not_analyzed"
+        },
+        "body_bytes_sent": {
+          "type": "string",
+          "index": "not_analyzed"
+        },
+        "bytes_sent": {
+          "type": "string",
+          "index": "not_analyzed"
+        },
+        "content_length": {
+          "type": "string",
+          "index": "not_analyzed"
+        },
+        "grauth": {
+          "type": "string",
+          "index": "not_analyzed"
+        },
+        "http_host": {
+          "type": "string",
+          "index": "not_analyzed"
+        },
+        "http_referrer": {
+          "type": "string",
+          "index": "not_analyzed"
+        },
+        "http_user_agent": {
+          "type": "string",
+          "index": "not_analyzed"
+        },
+        "remote_addr": {
+          "type": "string",
+          "index": "not_analyzed"
+        },
+        "remote_user": {
+          "type": "string",
+          "index": "not_analyzed"
+        },
+        "request": {
+          "type": "string",
+          "index": "not_analyzed"
+        },
+        "request_length": {
+          "type": "string",
+          "index": "not_analyzed"
+        },
+        "request_method": {
+          "type": "string",
+          "index": "not_analyzed"
+        },
+        "request_time": {
+          "type": "string",
+          "index": "not_analyzed"
+        },
+        "request_uri": {
+          "type": "string",
+          "index": "not_analyzed"
+        },
+        "scheme": {
+          "type": "string",
+          "index": "not_analyzed"
+        },
+        "sent_http_location": {
+          "type": "string",
+          "index": "not_analyzed"
+        },
+        "sent_http_set_cookie": {
+          "type": "string",
+          "index": "not_analyzed"
+        },
+        "server_name": {
+          "type": "string",
+          "index": "not_analyzed"
+        },
+        "status": {
+          "type": "string",
+          "index": "not_analyzed"
+        },
+        "team": {
+          "type": "string",
+          "index": "not_analyzed"
+        },
+        "upstream_addr": {
+          "type": "string",
+          "index": "not_analyzed"
+        },
+        "upstream_response_time": {
+          "type": "string",
+          "index": "not_analyzed"
+        },
+        "uri": {
+          "type": "string",
+          "index": "not_analyzed"
+        }
+      }
+    }
+  },
+  
+  "aliases" : { }
+}
