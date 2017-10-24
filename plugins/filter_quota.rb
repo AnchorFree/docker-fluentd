@@ -24,8 +24,6 @@ module Fluent::Plugin
       super
       # This is the first method to be called when it starts running
       # Use it to allocate resources, etc.
-      @counter = 0
-      @remaining = 0
       @redis = Redis.new(url: @redis_url)
       Thread.new {
       @store = GCRA::RedisStore.new(@redis, @prefix)
@@ -48,13 +46,7 @@ module Fluent::Plugin
       #
       # If returns nil, that records are ignored.
 
-#      if @counter < @remaining
-#          @counter += 1
-#          return record
-#      end
-      exceeded, info = @limiter.limit(@prefix, @counter)
-      @remaining = info.remaining
-#      @counter = 0
+      exceeded, _ = @limiter.limit(@prefix, 1)
       if exceeded
           return nil
       end
