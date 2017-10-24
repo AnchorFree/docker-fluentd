@@ -8,6 +8,7 @@ RUN apk add --update --virtual .build-deps \
         fluent-plugin-rewrite-tag-filter \
         fluent-plugin-multiprocess \
         fluent-plugin-multi-format-parser \
+        fluent-plugin-prometheus \
         redis \
         gcra \
  && sudo gem sources --clear-all \
