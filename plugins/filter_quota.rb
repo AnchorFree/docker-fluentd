@@ -48,13 +48,13 @@ module Fluent::Plugin
       #
       # If returns nil, that records are ignored.
 
-      if @counter < @remaining
-          @counter += 1
-          return record
-      end
+#      if @counter < @remaining
+#          @counter += 1
+#          return record
+#      end
       exceeded, info = @limiter.limit(@prefix, @counter)
       @remaining = info.remaining
-      @counter = 0
+#      @counter = 0
       if exceeded
           return nil
       end
