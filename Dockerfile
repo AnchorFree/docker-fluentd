@@ -1,7 +1,7 @@
-FROM fluent/fluentd:v0.14
+FROM fluent/fluentd:v0.14.22
 
 RUN apk add --update --virtual .build-deps \
-        sudo build-base ruby-dev \
+        sudo build-base ruby-dev g++ libffi libffi-dev \
  && sudo gem install \
         fluent-plugin-elasticsearch \
  && sudo gem install \
