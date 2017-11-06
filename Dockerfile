@@ -14,6 +14,8 @@ RUN apk add --update --virtual .build-deps \
         fluent-plugin-multi-format-parser \
  && sudo gem install \
         fluent-plugin-prometheus \
+ && sudo gem install \
+        fluent-plugin-systemd \
  && sudo gem sources --clear-all \
  && apk del .build-deps \
  && rm -rf /var/cache/apk/* \
