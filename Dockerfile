@@ -1,22 +1,18 @@
-FROM fluent/fluentd:v0.14.22
+FROM fluent/fluentd:v0.14.22-debian
 
-RUN apk add --update --virtual .build-deps \
-        sudo build-base ruby-dev g++ libffi libffi-dev \
- && sudo gem install \
+RUN apt-get update -y \
+    && apt-get install ruby-dev build-essential dh-autoreconf libffi6 libffi-dev libsystemd-dev libsystemd0 -y \
+    && gem install \
         fluent-plugin-elasticsearch \
- && sudo gem install \
+    && gem install \
         fluent-plugin-record-reformer \
- && sudo gem install \
+    && gem install \
         fluent-plugin-rewrite-tag-filter \
- && sudo gem install \
+    && gem install \
         fluent-plugin-multiprocess \
- && sudo gem install \
+    && gem install \
         fluent-plugin-multi-format-parser \
- && sudo gem install \
+    && gem install \
         fluent-plugin-prometheus \
- && sudo gem install \
-        fluent-plugin-systemd \
- && sudo gem sources --clear-all \
- && apk del .build-deps \
- && rm -rf /var/cache/apk/* \
-           /home/fluent/.gem/ruby/2.3.0/cache/*.gem
+    && gem install \
+        fluent-plugin-systemd
