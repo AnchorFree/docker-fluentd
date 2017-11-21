@@ -1,4 +1,4 @@
-FROM fluent/fluentd:v0.14.17-debian
+FROM fluent/fluentd:v0.14.23-debian
 
 RUN apt-get update -y \
     && apt-get install ruby-dev build-essential dh-autoreconf libffi6 libffi-dev libsystemd-dev libsystemd0 -y \
