@@ -7,7 +7,7 @@ RUN apt-get update -y \
     && gem install \
         fluent-plugin-record-reformer \
     && gem install \
-        fluent-plugin-rewrite-tag-filter \
+        fluent-plugin-rewrite-tag-filter -v 2.0.0 \
     && gem install \
         fluent-plugin-multiprocess \
     && gem install \
