@@ -5,7 +5,7 @@ RUN apt-get update -y \
     && gem install \
         fluent-plugin-elasticsearch \
     && gem install \
-        filter_elasticsearch_genid \
+        fluent-plugin-add-uuid \
     && gem install \
         fluent-plugin-record-reformer \
     && gem install \
