@@ -5,6 +5,8 @@ RUN apt-get update -y \
     && gem install \
         fluent-plugin-elasticsearch \
     && gem install \
+        filter_elasticsearch_genid \
+    && gem install \
         fluent-plugin-record-reformer \
     && gem install \
         fluent-plugin-rewrite-tag-filter -v 2.0.0 \
