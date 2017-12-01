@@ -1,9 +1,9 @@
-FROM fluent/fluentd:v0.14.23-debian
+FROM fluent/fluentd:v0.14.25-debian
 
 RUN apt-get update -y \
     && apt-get install ruby-dev build-essential dh-autoreconf libffi6 libffi-dev libsystemd-dev libsystemd0 -y \
     && gem install \
-        fluent-plugin-elasticsearch \
+        fluent-plugin-elasticsearch -v 2.4.0 \
     && gem install \
         fluent-plugin-add-uuid \
     && gem install \
