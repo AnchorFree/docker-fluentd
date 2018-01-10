@@ -21,4 +21,10 @@ RUN apt-get update -y \
     && gem install \
         fluent-plugin-systemd \
     && gem install \
-        fluent-plugin-kubernetes_metadata_filter
+        fluent-plugin-kubernetes_metadata_filter \
+    && gem install \
+        fluent-plugin-filter \
+    && gem install \
+        fluent-plugin-parser \
+   && gem install \
+        fluent-plugin-record-modifier 
