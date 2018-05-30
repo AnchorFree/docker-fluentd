@@ -1,4 +1,4 @@
-FROM fluent/fluentd:v1.0.2-debian
+FROM fluent/fluentd:v1.2.1-debian
 
 RUN apt-get update -y \
     && apt-get install python-pip -y \
