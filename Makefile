@@ -1,5 +1,5 @@
 NAME = anchorfree/fluentd
-VERSION = 0.14.17
+VERSION = v5.0.0
 
 .PHONY: all
 
