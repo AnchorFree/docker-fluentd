@@ -17,6 +17,7 @@ RUN buildDeps="sudo make gcc g++ libc-dev ruby-dev libffi-dev libsystemd-dev pyt
     && gem install fluent-plugin-filter \
     && gem install fluent-plugin-parser \
     && gem install fluent-plugin-record-modifier  \
+    && gem install fluent-plugin-s3  \
     && sudo gem sources --clear-all \
     && SUDO_FORCE_REMOVE=yes apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false $buildDeps \
     && rm -rf /var/lib/apt/lists/* /home/fluent/.gem/ruby/2.3.0/cache/*.gem
