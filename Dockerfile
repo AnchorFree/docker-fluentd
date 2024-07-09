@@ -1,4 +1,7 @@
-FROM fluent/fluentd:v1.3.1-debian-onbuild
+FROM fluent/fluentd:v1.14.0-debian-1.1
+
+ADD healthcheck.sh /
+USER root
 
 RUN buildDeps="sudo make gcc g++ libc-dev ruby-dev libffi-dev libsystemd-dev python-setuptools python-pip" \
     && apt-get update \
@@ -21,3 +24,6 @@ RUN buildDeps="sudo make gcc g++ libc-dev ruby-dev libffi-dev libsystemd-dev pyt
     && sudo gem sources --clear-all \
     && SUDO_FORCE_REMOVE=yes apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false $buildDeps \
     && rm -rf /var/lib/apt/lists/* /home/fluent/.gem/ruby/2.3.0/cache/*.gem
+
+HEALTHCHECK --interval=60s --timeout=30s --start-period=30s \
+  CMD sh /healthcheck.sh
